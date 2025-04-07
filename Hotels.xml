@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Hotels xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://kayceegarciia.github.io/cse445_a4/Hotels.xsd">
+<Hotels
+  xmlns="http://venus.sod.asu.edu/WSRepository/xml"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://venus.sod.asu.edu/WSRepository/xml Hotels.xsd">
 
 <Hotel>
     <Name>Westin</Name>
