@@ -1,45 +1,32 @@
-<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-            xmlns="http://venus.sod.asu.edu/WSRepository/xml"
-            targetNamespace="http://venus.sod.asu.edu/WSRepository/xml"
-            elementFormDefault="qualified"
-            attributeFormDefault="unqualified">
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-  <xsd:annotation>
-    <xsd:documentation xml:lang="en">
-      Hotels Directory Schema for CSE445 Assignment 4
-    </xsd:documentation>
-  </xsd:annotation>
+  <xs:element name="Hotels">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Hotel" maxOccurs="unbounded">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Name" type="xs:string" />
+              <xs:element name="Phone" type="xs:string" minOccurs="1" maxOccurs="unbounded" />
+              <xs:element name="Address">
+                <xs:complexType>
+                  <xs:sequence>
+                    <xs:element name="Number" type="xs:int" />
+                    <xs:element name="Street" type="xs:string" />
+                    <xs:element name="City" type="xs:string" />
+                    <xs:element name="State" type="xs:string" />
+                    <xs:element name="Zip" type="xs:int" />
+                  </xs:sequence>
+                  <xs:attribute name="NearestAirport" type="xs:string" use="required" />
+                </xs:complexType>
+              </xs:element>
+              <xs:element name="Rating" type="xs:float" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 
-  <!-- Root element -->
-  <xsd:element name="Hotels" type="Hotels"/>
-
-  <!-- Type for Hotels -->
-  <xsd:complexType name="Hotels">
-    <xsd:sequence>
-      <xsd:element name="Hotel" type="Hotel" minOccurs="1" maxOccurs="unbounded"/>
-    </xsd:sequence>
-  </xsd:complexType>
-
-  <!-- Type for a Hotel -->
-  <xsd:complexType name="Hotel">
-    <xsd:sequence>
-      <xsd:element name="Name" type="xsd:string"/>
-      <xsd:element name="Phone" type="xsd:string" minOccurs="1" maxOccurs="unbounded"/>
-      <xsd:element name="Address" type="Address"/>
-      <xsd:element name="Rating" type="xsd:string" minOccurs="0"/>
-    </xsd:sequence>
-  </xsd:complexType>
-
-  <!-- AddressType includes required attribute NearstAirport -->
-  <xsd:complexType name="Address">
-    <xsd:sequence>
-      <xsd:element name="Number" type="xsd:int"/>
-      <xsd:element name="Street" type="xsd:string"/>
-      <xsd:element name="City" type="xsd:string"/>
-      <xsd:element name="State" type="xsd:string"/>
-      <xsd:element name="Zip" type="xsd:int"/>
-    </xsd:sequence>
-    <xsd:attribute name="NearstAirport" type="xsd:string" use="required"/>
-  </xsd:complexType>
-
-</xsd:schema>
+</xs:schema>
