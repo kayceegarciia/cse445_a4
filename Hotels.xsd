@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns="http://venus.sod.asu.edu/WSRepository/xml"
+            targetNamespace="http://venus.sod.asu.edu/WSRepository/xml"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified">
 
   <xs:element name="Hotels">
     <xs:complexType>
       <xs:sequence>
         <xs:element name="Hotel" minOccurs="1" maxOccurs="unbounded">
+
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Name" type="xs:string" />
+
               <xs:element name="Phone" type="xs:string" minOccurs="1" maxOccurs="unbounded" />
+
               <xs:element name="Address">
                 <xs:complexType>
                   <xs:sequence>
@@ -21,7 +28,9 @@
                   <xs:attribute name="NearestAirport" type="xs:string" use="required" />
                 </xs:complexType>
               </xs:element>
+
               <xs:element name="Rating" type="xs:float" minOccurs="0" />
+
             </xs:sequence>
           </xs:complexType>
         </xs:element>
